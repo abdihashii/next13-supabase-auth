@@ -59,7 +59,7 @@ const SignIn = () => {
         <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
-            className="rounded border border-gray-300 px-4 py-2"
+            className="rounded border border-gray-300 px-4 py-2 text-black"
             id="email"
             {...register('email')}
           />
@@ -70,7 +70,7 @@ const SignIn = () => {
           <label htmlFor="password">Password</label>
           <div className="relative flex flex-row items-center justify-between">
             <input
-              className="w-full rounded border border-gray-300 px-4 py-2"
+              className="w-full rounded border border-gray-300 px-4 py-2 text-black"
               id="password"
               type={showPassword ? 'text' : 'password'}
               {...register('password')}
