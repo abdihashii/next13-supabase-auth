@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import SignOut from '@/components/auth/SignOut';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Bookmarks() {
   const supabase = createServerComponentClient({
     cookies,
