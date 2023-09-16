@@ -28,7 +28,10 @@ export default async function Bookmarks() {
           {bookmarks.map((bookmark) => (
             <li key={bookmark.uuid}>
               <Image
-                src={bookmark?.imgsrc || undefined}
+                src={
+                  bookmark?.imgsrc ||
+                  'https://images.unsplash.com/photo-1560719887-fe3105fa1e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80'
+                }
                 alt={bookmark?.title || undefined}
                 width="1920"
                 height="1080"
