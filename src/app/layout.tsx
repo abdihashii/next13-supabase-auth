@@ -1,13 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { cookies } from 'next/headers';
 import AuthProvider from '@/components/AuthProvider';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { getSession } from '@/lib/supabase';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,11 +16,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createServerComponentClient({ cookies });
-
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const session = await getSession();
 
   const accessToken = session?.access_token || null;
 

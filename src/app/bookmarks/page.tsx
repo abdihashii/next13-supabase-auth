@@ -1,19 +1,11 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import SignOut from '@/components/auth/SignOut';
 import Image from 'next/image';
-
-export const dynamic = 'force-dynamic';
+import { createServerSupabaseClient, getUser } from '@/lib/supabase';
 
 export default async function Bookmarks() {
-  const supabase = createServerComponentClient({
-    cookies,
-  });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const supabase = createServerSupabaseClient();
+  const user = await getUser();
 
   if (!user) {
     redirect('/sign-in');
